@@ -9,11 +9,31 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 2021_08_09_135737) do
+ActiveRecord::Schema.define(version: 2021_08_09_141454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "shop_id", null: false
+    t.string "title"
+    t.text "description"
+    t.float "price"
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_products_on_shop_id"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.text "history"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shops_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +49,6 @@ ActiveRecord::Schema.define(version: 2021_08_09_135737) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "products", "shops"
+  add_foreign_key "shops", "users"
 end
