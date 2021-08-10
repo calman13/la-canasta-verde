@@ -40,7 +40,7 @@ puts 'Creating users...'
 
     puts 'Creating products...'
     10.times do
-      product = Product.new(title: "Sandia", description: "Bla", price: "#{rand(100..10000)}", amount: "#{rand(15..100)}")
+      product = Product.new(title: "#{Faker::Food.fruits}", description: "#{Faker::Food.description}", price: "#{rand(100..10000)}", amount: "#{rand(15..100)}")
       user.shops.last.products << product
       product.save
     end
