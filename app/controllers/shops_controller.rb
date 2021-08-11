@@ -25,6 +25,14 @@ class ShopsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @shop.update(shop_params)
+    redirect_to shop_path(@shop)
+  end
+
   def destroy
     @shop.destroy
     redirect_to shops_path
