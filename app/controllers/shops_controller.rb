@@ -1,8 +1,5 @@
 class ShopsController < ApplicationController
 
-
-  
-
   def new
     @shop = Shop.new
   end
@@ -18,14 +15,9 @@ class ShopsController < ApplicationController
   end
 
 
-
   private
 
   def shop_params
     params.require(:shop).permit(:name, :history, :image)
   end
-  
- 
-
 end
-
