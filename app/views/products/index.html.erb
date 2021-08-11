@@ -1,0 +1,7 @@
+<h1>LA CANASTA VERDE</h1>
+<h2>Productos</h2>
+<ol>
+  <% @productos.each do |product| %>
+    <li><%= product.title.capitalize %></li>
+  <% end %>
+</ol>
