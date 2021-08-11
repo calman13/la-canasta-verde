@@ -1,7 +1,14 @@
 class ShopsController < ApplicationController
 
   def index
-    @shops = Shop.all
+    if params[:query].present?
+      @query = params[:query]
+      @shops = Shop.where("name LIKE ?","%#{params[:query]}%")
+      # Preventing SQL Injection and Database error for
+      # unknown characters
+    else
+      @shops = Shop.all
+    end
   end
 
   def show
