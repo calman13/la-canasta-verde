@@ -26,7 +26,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
-      redirect_to root_path
+      redirect_to shops_path(@shop)
     else
       render :new
     end
