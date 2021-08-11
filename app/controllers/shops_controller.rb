@@ -9,4 +9,9 @@ class ShopsController < ApplicationController
     @product = Product.new(shop: @shop)
     #@user = User.new(shop: @shop)
   end
+
+  def destroy
+    @shop.destroy
+    redirect_to shops_path
+  end
 end
