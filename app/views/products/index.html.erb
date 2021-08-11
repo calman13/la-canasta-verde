@@ -2,6 +2,6 @@
 <h2>Productos</h2>
 <ol>
   <% @productos.each do |product| %>
-    <li><%= product.capitalize %></li>
+    <li><%= product.title.capitalize %></li>
   <% end %>
 </ol>
