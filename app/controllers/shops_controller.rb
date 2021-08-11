@@ -10,8 +10,29 @@ class ShopsController < ApplicationController
     #@user = User.new(shop: @shop)
   end
 
+  def new
+    @shop = Shop.new
+  end
+
+  def create
+    @shop = Shop.new(shop_params)
+    @shop.user_id = current_user.id
+    if @shop.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   def destroy
     @shop.destroy
     redirect_to shops_path
   end
+
+  private
+
+  def shop_params
+    params.require(:shop).permit(:name, :history, :image)
+  end
+
 end
