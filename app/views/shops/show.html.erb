@@ -1,12 +1,20 @@
-<div class="position-relative">
-  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-    <h1><%= @shop.name %></h1>
+<div id="content" class="clear" role="main">
+
+  <div class="row">
+    <div class="col-12">
+          <h1>Shop<%= @shop.name %></h1>
+    </div>
   </div>
-</div>
+
+  <div class="position-relative">
+    <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+      <h1><%= @shop.name %></h1>
+    </div>
+  </div>
 
   <div class="row my-2">
     <% @shop.products.each do |product| %>
-      <% shop = shop.find_by(shop: @shop, product: product) %>
+    <% shop = shop.find_by(shop: @shop, product: product) %>
       <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
         <div class="bg-white rounded shadow h-100">
           <div class="p-3 rounded-bottom d-flex flex-column">
@@ -22,3 +30,4 @@
       </div>
     <% end %>
   </div>
+</div>
