@@ -17,7 +17,14 @@ puts "Removing users"
 User.delete_all
 
 puts 'Creating users...'
-
+    user = User.create(
+    first_name: "canasta",
+    last_name:"verde",
+    email:"user@user.com",
+    phone:"111111111", 
+    address: "chile", 
+    password:"123456"
+    )
 10.times do 
   user = User.new(
     first_name: "#{Faker::Name.first_name }",
