@@ -18,7 +18,7 @@ User.delete_all
 
 puts 'Creating users...'
 
-10.times do 
+3.times do 
   user = User.new(
     first_name: "#{Faker::Name.first_name }",
     last_name:"#{Faker::Name.last_name}",
@@ -36,10 +36,11 @@ puts 'Creating users...'
       image:"https://http2.mlstatic.com/D_NQ_NP_949596-MLA44018322969_112020-O.webp"
     )
     user.shops << shop
+    user.save
     shop.save
 
     puts 'Creating products...'
-    10.times do
+    3.times do
       product = Product.new(title: "#{Faker::Food.fruits}", description: "#{Faker::Food.description}", price: "#{rand(100..10000)}", amount: "#{rand(15..100)}")
       user.shops.last.products << product
       product.save
