@@ -1,33 +1,29 @@
+<%= link_to 'Tiendas', shops_path %>
 <div id="content" class="clear" role="main">
 
   <div class="row">
     <div class="col-12">
-          <h1>Shop<%= @shop.name %></h1>
+          <h1><%= @shop.name %></h1>
+          <p><%= @shop.history %><p>
     </div>
   </div>
-
-  <div class="position-relative">
-    <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-      <h1><%= @shop.name %></h1>
-    </div>
-  </div>
-
-  <div class="row my-2">
-    <% @shop.products.each do |product| %>
-    <% shop = shop.find_by(shop: @shop, product: product) %>
-      <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
-        <div class="bg-white rounded shadow h-100">
-          <div class="p-3 rounded-bottom d-flex flex-column">
-            <strong><%= shop.name %> <span class="text-muted font-weight-normal">•<i class="fas fa-star star-yellow"></i></span></strong>
-            <div class="d-flex align-items-end justify-content-between pt-4">
-              <div>
-                <i class="fas fa-quote-left mr-2"></i><small class="flex-grow-1"><%= shop.history %></small>
-              </div>
-              <small class="text-right flex-shrink-0"><%= link_to 'delete', shop_path(shop), method: :delete, data: { confirm: "Are you sure you want to remove #{shop.name} from your #{@user.name} list"}, class: 'text-danger' %></small>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <h1><%= @user.try(:first_name) %></h1>
 </div>
+<ul>
+<% @shop.products.each do |product| %>
+
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><strong><%= product.title %></strong></h5>
+        <p class="card-price">Precio: <%= product.price %></p>
+        <p class="card-text"><%= product.description %></p>
+        <p class="card-amount">Cantidad: <%= product.amount %></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+  </div>
+  
+<% end %>
+</ul>
+
+  

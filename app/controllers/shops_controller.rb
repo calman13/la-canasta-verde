@@ -12,8 +12,8 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.new
-    #product = Product.new
+    @shop = Shop.find(params[:id])
+    @user = current_user
     @product = Product.new(shop: @shop)
     #@user = User.new(shop: @shop)
   end
