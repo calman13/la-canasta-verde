@@ -2,6 +2,9 @@
 <h2>Productos</h2>
 <ol>
   <% @products.each do |product| %>
+  <%=link_to product_path(product) do %>
     <li><%= product.title.capitalize %></li>
+  <%end%>
+    
   <% end %>
 </ol>
