@@ -1,6 +1,4 @@
-<%= link_to 'Tiendas', shops_path %>
 <div id="content" class="clear" role="main">
-
   <div class="row">
     <div class="col-12">
           <h1><%= @shop.name %></h1>
@@ -9,21 +7,24 @@
   </div>
   <h1><%= @user.try(:first_name) %></h1>
 </div>
-<ul>
-<% @shop.products.each do |product| %>
 
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><strong><%= product.title %></strong></h5>
-        <p class="card-price">Precio: <%= product.price %></p>
-        <p class="card-text"><%= product.description %></p>
-        <p class="card-amount">Cantidad: <%= product.amount %></p>
-        <%= link_to  'Comprar', product_path(product), class:"btn btn-primary" %>
+<ul>
+  <div class="d-flex flex-warp align-content-around justify-content-around">
+    <% @shop.products.each do |product| %>
+
+      <div class="card m-4" style="width: 18rem;">
+        <img class="card-img-top" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><strong><%= product.title %></strong></h5>
+            <p class="card-price">Precio: <%= product.price %></p>
+            <p class="card-text"><%= product.description %></p>
+            <p class="card-amount">Cantidad: <%= product.amount %></p>
+            <%= link_to  'Ver', product_path(product), class:"btn btn-primary" %>
+          </div>
       </div>
-  </div>
   
-<% end %>
+    <% end %>
+  </div>
 </ul>
 
   
