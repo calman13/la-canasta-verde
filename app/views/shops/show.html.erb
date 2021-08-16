@@ -1,15 +1,35 @@
+<div>
 <%= render 'shared/banner' %>
-<div id="content" class="clear" role="main">
-  <div class="row">
-    <div class="col-12">
-          <h1><%= @shop.name %></h1>
-          <p><%= @shop.history %><p>
+</div>
+
+<div id="content" class="wt-max-width-full wt-grid wt-pr-lg-5" role="main">
+  <div class="wt-grid__item-xs-12 wt-display-flex-xs wt-grid__item-md-7 wt-br-md-wt-pr-md-4 wt-align-items-center">
+    <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
+    </div>  
+    <div>
+      <h1><%= @shop.name %></h1>
+    </div>  
+    <div>
+      <h5><%= @user.try(:first_name) %></h5>
+      <a class="btn btn-ghost" href="#"><i class="fas fa-envelope"></i> Contactar</a>
+    </div>
+    <div class="wt-display-inline-flex-xs wt-grid__item-md-5 wt-mt-xs-3 wt-mt-md-0 wt-pl-md-3 highlight-container highlight-container- wt-align-items-center">
+      <div>
+        <h2 class="wt-text-caption-title wt-display-inline">Historia</h2>
+        <p class="wt-text-caption wt-display-inline"><%= @shop.history %></p>
+      </div>
     </div>
   </div>
-  <h1><%= @user.try(:first_name) %></h1>
 </div>
+
+
+
+
+
 <div class="container">
   <ul>
+    <h3>Productos</h3>
     <div class="d-flex flex-wrap justify-content-around">
       <% @shop.products.each do |product| %>
 

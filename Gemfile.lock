@@ -232,6 +232,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actionmailbox
+  actiontext
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)
   byebug

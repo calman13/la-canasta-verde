@@ -7,8 +7,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+<div>
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="search-form-control form-group" aria-expanded="false">
+      <input class="wt-input wt-input-btn-group__input global-enhancements-search-input-btn-group__input wt-pr-xs-7" placeholder="Busca lo que quieres" type="text" name="search[query]" id="search_query" /> 
+      <button name="button" type="submit" class="btn btn-gradient">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  <% end %>
+</div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
