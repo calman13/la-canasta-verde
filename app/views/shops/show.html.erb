@@ -19,11 +19,11 @@
         <p class="card-price">Precio: <%= product.price %></p>
         <p class="card-text"><%= product.description %></p>
         <p class="card-amount">Cantidad: <%= product.amount %></p>
-        <%= link_to  'Comprar', product_path(product), class:"btn btn-primary" %>
+        <%= link_to  'Comprar', shop_product_path(product.shop, product), class:"btn btn-primary" %>
       </div>
   </div>
   
 <% end %>
 </ul>
 
-  
+  <%= link_to "nuevo producto", new_shop_product_path(@shop) %>

@@ -9,7 +9,7 @@
 
         <div class="card-trip-infos">
           <div>
-            <%=link_to product_path(product) do %>
+            <%=link_to shop_product_path(product.shop, product) do %>
             <h2><%= product.title.capitalize %></h2>
             <p>Short description here!</p>
             <% end %>

@@ -29,7 +29,9 @@
     
             <% @shops.each do |shop| %>
               <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+               <% if shop.image.attached? %>
+                 <%= cl_image_tag shop.image.key, height: 300, width: 400, crop: :fill %>
+               <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><strong><%= link_to shop.name, shop_path(shop) %></strong></h5>
                   </div>
