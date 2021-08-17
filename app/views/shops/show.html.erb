@@ -2,9 +2,10 @@
 <%= render 'shared/carousel' %>
 </div>
 
-<div id="content" class="wt-max-width-full d-flex justify-content-around" role="main">
-  <div>
-    <div clas="col-4">
+<div class="container mb-5">
+  <div id="content" class="d-flex justify-content-around" role="main">
+    <%# Datos usuario %>
+    <div class="flex-grow-3">
       <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
       </div>  
@@ -14,17 +15,18 @@
       <div>
         <h5><%= @user.try(:first_name) %></h5>
         <a class="btn btn-ghost" href="#"><i class="fas fa-envelope"></i> Contactar</a>
-      </div>
-    </div>  
-    <div class="wt-display-inline-flex-xs wt-grid__item-md-5 wt-mt-xs-3 wt-mt-md-0 wt-pl-md-3 highlight-container highlight-container- wt-align-items-center col-8">
+      </div> 
+    </div>
+    <%# Historia %>
+    <div class="flex-grow-1 p-5">
       <div>
         <h2 class="wt-text-caption-title wt-display-inline">Historia</h2>
         <p class="wt-text-caption wt-display-inline"><%= @shop.history %></p>
       </div>
     </div>
+    </div>
   </div>
 </div>
-
 
 
 
