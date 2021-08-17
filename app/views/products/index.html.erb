@@ -4,9 +4,9 @@
     <div class="d-flex flex-wrap justify-content-around">
     <% @products.each do |product| %>    
       <div class="card-trip m-4">
-      <%= cl_image_tag("rngzwh2lt8jjhfv0ycvw",
-      width: 400, height: 300, crop: :fill) %>
-
+          <% if product.image.attached? %>
+            <%= cl_image_tag product.image.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
@@ -14,7 +14,7 @@
           </div>
           <div class="mt-2">
             <p class="card-amount">Cantidad: <%= product.amount %></p>
-          </div>
+            </div>
         </div>
       </div>
     <% end %>
