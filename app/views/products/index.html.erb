@@ -9,12 +9,12 @@
 
         <div class="card-trip-infos">
           <div>
-            <%=link_to shop_product_path(product.shop, product) do %>
-            <h2><%= product.title.capitalize %></h2>
-            <p>Short description here!</p>
-            <% end %>
+            <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
+            <p class="card-trip-pricing">Precio: $<%= product.price %></p>
           </div>
-          <h2 class="card-trip-pricing">£99.99</h2>
+          <div class="mt-2">
+            <p class="card-amount">Cantidad: <%= product.amount %></p>
+          </div>
         </div>
       </div>
     <% end %>

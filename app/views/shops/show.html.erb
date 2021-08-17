@@ -1,29 +1,50 @@
-<%= link_to 'Tiendas', shops_path %>
-<div id="content" class="clear" role="main">
+<div>
+<%= render 'shared/carousel' %>
+</div>
 
-  <div class="row">
-    <div class="col-12">
-          <h1><%= @shop.name %></h1>
-          <p><%= @shop.history %><p>
+<div id="content" class="wt-max-width-full d-flex justify-content-around" role="main">
+  <div>
+    <div clas="col-4">
+      <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
+      </div>  
+      <div>
+        <h1><%= @shop.name %></h1>
+      </div>  
+      <div>
+        <h5><%= @user.try(:first_name) %></h5>
+        <a class="btn btn-ghost" href="#"><i class="fas fa-envelope"></i> Contactar</a>
+      </div>
+    </div>  
+    <div class="wt-display-inline-flex-xs wt-grid__item-md-5 wt-mt-xs-3 wt-mt-md-0 wt-pl-md-3 highlight-container highlight-container- wt-align-items-center col-8">
+      <div>
+        <h2 class="wt-text-caption-title wt-display-inline">Historia</h2>
+        <p class="wt-text-caption wt-display-inline"><%= @shop.history %></p>
+      </div>
     </div>
   </div>
-  <h1><%= @user.try(:first_name) %></h1>
 </div>
-<ul>
-<% @shop.products.each do |product| %>
+<div class="container">
+  <ul>
+    <h3>Productos</h3>
+    <div class="d-flex flex-wrap justify-content-around">
+      <% @shop.products.each do |product| %>
 
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><strong><%= product.title %></strong></h5>
-        <p class="card-price">Precio: <%= product.price %></p>
-        <p class="card-text"><%= product.description %></p>
-        <p class="card-amount">Cantidad: <%= product.amount %></p>
-        <%= link_to  'Comprar', shop_product_path(product.shop, product), class:"btn btn-primary" %>
-      </div>
-  </div>
-  
-<% end %>
-</ul>
-
+        <div class="card-trip m-4">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
+              <p class="card-price">Precio: $ <%= product.price %></p>
+            </div>
+            <div class="mt-2">
+              <p class="card-amount">Cantidad: <%= product.amount %></p>
+            </div>
+            <%= link_to  'Comprar', shop_product_path(product.shop, product), class:"btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </ul>
   <%= link_to "nuevo producto", new_shop_product_path(@shop) %>
+</div>
