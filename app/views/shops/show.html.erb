@@ -24,11 +24,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 <div class="container">
   <ul>
     <h3>Productos</h3>
@@ -39,15 +34,17 @@
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
           <div class="card-trip-infos">
             <div>
-              <h2><%= link_to product.title.capitalize, product_path(product) %></h2>
+              <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
               <p class="card-price">Precio: $ <%= product.price %></p>
             </div>
             <div class="mt-2">
               <p class="card-amount">Cantidad: <%= product.amount %></p>
-            </div>  
+            </div>
+            <%= link_to  'Comprar', shop_product_path(product.shop, product), class:"btn btn-primary" %>
           </div>
         </div>
       <% end %>
     </div>
   </ul>
+  <%= link_to "nuevo producto", new_shop_product_path(@shop) %>
 </div>

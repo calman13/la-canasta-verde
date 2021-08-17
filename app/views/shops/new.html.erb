@@ -5,7 +5,7 @@
 <%= simple_form_for [ @shop ] do |f| %>
   <%= f.input :name %>
   <%= f.input :history %>
-  <%= f.input :image %>
+  <%= f.input :image, as: :file %>
   <%= f.submit "Submit shop", class: "btn btn-primary" %>
 <% end %>
 
