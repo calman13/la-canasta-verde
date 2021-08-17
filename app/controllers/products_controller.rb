@@ -1,8 +1,12 @@
 class ProductsController < ApplicationController
     before_action :set_shop, only: [:new, :create]
     def index
-     @products = Product.all
-    end
+        if params[:query].present?
+          @products = Product.where("lower(title)  LIKE ?", "%" + params[:query].downcase + "%")
+        else
+          @products = Product.all
+        end
+      end
     
     def show
      @product = Product.find(params[:id])
