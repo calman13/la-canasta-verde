@@ -4,18 +4,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <div class="row">
-      <div class="col-12">
-        <h2>Todas nuestras Tiendas</h2>
-        <h3> Descubre una selección de tiendas</h3>
-          <div class="row">
-            <div class="col">
-              <% if @query %>
-                <p>You searched for <strong><%= @query %></strong>. We found <%= @shops.count %> shops out of our <%= Shop.count %> on our website.</p>
-              <% else %>
-                <p>Tiendas disponibles:<%= Shop.count %></p>
-              <% end %>
-            </div>
+      <div class="col-12 text-center">
+        <h2>Descubre una selección de tiendas</h2>
+        <div class="row">
+          <div class="col">
+            <% if @query %>
+              <p>You searched for <strong><%= @query %></strong>. We found <%= @shops.count %> shops out of our <%= Shop.count %> on our website.</p>
+            <% else %>
+              <p>Tiendas disponibles:<%= Shop.count %></p>
+            <% end %>
           </div>
+        </div>
       </div>
     </div> 
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/release/v5.0.10/css/all.css">
