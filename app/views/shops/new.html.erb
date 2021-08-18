@@ -1,11 +1,11 @@
 
 
-<h1> Pagina de New para crear nuevo registro</h1>
-
+<h1 class="text-center"> Pagina de New para crear nuevo registro</h1>
+<div class="container">
 <%= simple_form_for [ @shop ] do |f| %>
   <%= f.input :name %>
   <%= f.input :history %>
   <%= f.input :image, as: :file %>
   <%= f.submit "Submit shop", class: "btn btn-primary" %>
 <% end %>
-
+</div> 

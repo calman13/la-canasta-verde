@@ -33,7 +33,9 @@
       <% @shop.products.each do |product| %>
 
         <div class="card-trip m-4">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+          <% if product.image.attached? %>
+            <%= cl_image_tag product.image.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
           <div class="card-trip-infos">
             <div>
               <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
