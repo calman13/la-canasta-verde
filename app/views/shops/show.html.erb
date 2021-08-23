@@ -4,20 +4,20 @@
 
 <div class="container mb-5">
   <div id="content" class="d-flex justify-content-around" role="main">
-    <%# Datos usuario %>
-    <div class="flex-grow-3">
-      <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
+  <%# usuario %>
+    <div clas="flex-grow-3">
+      <div>
+        <h2><%= @shop.name %></h2>
+      </div>  
+        <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
       </div>  
       <div>
-        <h1><%= @shop.name %></h1>
-      </div>  
-      <div>
-        <h5><%= @user.try(:first_name) %></h5>
-        <a class="btn btn-ghost" href="#"><i class="fas fa-envelope"></i> Contactar</a>
-      </div> 
+        <!--<h5><%= @user.try(:first_name) %></h5>-->
+        <a class="btn btn-contact align-center" href="#"><i class="fas fa-envelope"></i> Contactar</a>
+      </div>
     </div>
-    <%# Historia %>
+    <%# historia %>
     <div class="flex-grow-1 p-5">
       <div>
         <h2 class="wt-text-caption-title wt-display-inline">Historia</h2>
@@ -27,13 +27,9 @@
     </div>
   </div>
 </div>
-
-
-
-
 <div class="container">
   <ul>
-    <h3>Productos</h3>
+    <h3 class="text-center">Productos</h3>
     <div class="d-flex flex-wrap justify-content-around">
       <% @shop.products.each do |product| %>
 
@@ -41,15 +37,17 @@
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
           <div class="card-trip-infos">
             <div>
-              <h2><%= link_to product.title.capitalize, product_path(product) %></h2>
+              <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
               <p class="card-price">Precio: $ <%= product.price %></p>
             </div>
             <div class="mt-2">
               <p class="card-amount">Cantidad: <%= product.amount %></p>
-            </div>  
+            </div>
           </div>
         </div>
-      <% end %>
+      <% end %> 
     </div>
+    <%= link_to "+ Agregar producto", new_shop_product_path(@shop), class: "btn btn-add" %> 
   </ul>
+  
 </div>

@@ -1,18 +1,22 @@
-<h1>LA CANASTA VERDE</h1>
-<h2>Productos</h2>
+<div class="text-center">
+<h1 class="text-center">LA CANASTA VERDE</h1>
+<h2 class="text-center">Productos</h2>
+</div>
 <div class="container">
     <div class="d-flex flex-wrap justify-content-around">
     <% @products.each do |product| %>    
       <div class="card-trip m-4">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <% if product.image.attached? %>
+            <%= cl_image_tag product.image.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
         <div class="card-trip-infos">
           <div>
-            <h2><%= link_to product.title.capitalize, product_path(product) %></h2>
+            <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
             <p class="card-trip-pricing">Precio: $<%= product.price %></p>
           </div>
           <div class="mt-2">
             <p class="card-amount">Cantidad: <%= product.amount %></p>
-          </div>
+            </div>
         </div>
       </div>
     <% end %>
