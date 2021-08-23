@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
 <%= simple_form_for([@shop, @product]) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
@@ -8,3 +9,14 @@
   <%= f.button :submit %>
   <% end %>
   </div>
+=======
+  <%= simple_form_for([@shop, @product]) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :amount %>
+    <%= f.input :price %>
+    <%= f.input :image, as: :file %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+>>>>>>> 568aaaee5d9f16a5a5b94290499705df8b63297a

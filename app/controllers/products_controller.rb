@@ -35,6 +35,10 @@ class ProductsController < ApplicationController
     def product_params
         params.require(:product).permit(:title, :description, :price, :amount, :image)
     end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 568aaaee5d9f16a5a5b94290499705df8b63297a
     #def destroy
       #@product = Product.find(params[:id])
      # @product.destroy

@@ -1,6 +1,10 @@
 .footer {
   background: rgba(148, 235, 147, 1);
+<<<<<<< HEAD
    display: flex;
+=======
+  display: flex;
+>>>>>>> 568aaaee5d9f16a5a5b94290499705df8b63297a
   align-items: center;
   justify-content: space-between;
   height: 100px;
@@ -23,4 +27,8 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.footer-copyright p:hover {
+  opacity: 1;
 }
