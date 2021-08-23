@@ -1,7 +1,27 @@
-<h1><%=@product.title%></h1>
-<h2><%=@product.price%></h2>
-<p><%=@product.description%></p>
-<h3><%= link_to  @product.shop.name, shop_path(@product.shop) %> </h3>
-<i class="fas fa-envelope"></i>
+<div class="container mb-5 cont-product p-2">
+  <div id="content" class="d-flex justify-content-around" role="main">
+  <%# usuario %>
+    <div clas="flex-grow-3">
+      <div>
+        <h1><%= @product.title.try(:capitalize) %></h1>
+      </div>  
+        <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
+        <% if @product.image.attached? %>
+        <%= cl_image_tag @product.image.key, crop: :fill , class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
+        <% end %>
+      </div>  
+    </div>
+    <%# historia %>
+    <div class="flex-grow-1 p-5">
+      <div>
+        <h2 class="wt-text-caption-title wt-display-inline">Description</h2>
+        <p class="wt-text-caption wt-display-inline"><%= @product.description %></p>
+        <h2><%=@product.price%></h2>
+        <p><%= link_to  @product.shop.name, shop_path(@product.shop) %> </p>
+        <i class="fas fa-envelope"></i>
+      </div>
+    </div>
+  </div>
+</div>
 
 
