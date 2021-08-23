@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "Vegetales2.jpg" %>
+    <%= image_tag "Vegetales2.jpg", crop: :fill, class:"nav-logo" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,8 +11,8 @@
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group" aria-expanded="false">
       <input class="wt-input wt-input-btn-group__input global-enhancements-search-input-btn-group__input wt-pr-xs-7" placeholder="Busca lo que quieres" type="text" name="query" id="search_query" /> 
-      <button name="button" type="submit" class="btn btn-gradient">
-        <i class="fas fa-search"></i> Search
+      <button name="button" type="submit" class="btn btn-gradient-2">
+        <i class="fas fa-search"></i>
       </button>
     </div>
   <% end %>
@@ -21,13 +21,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", root_path , class: "nav-link" %>
+          <%= link_to "Inicio", root_path , class: "nav-link" %>
         </li>
         <li class="nav-item">
         <%= link_to 'Tiendas', shops_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%= link_to "Mensajes", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

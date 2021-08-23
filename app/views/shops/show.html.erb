@@ -7,14 +7,14 @@
   <%# usuario %>
     <div clas="flex-grow-3">
       <div>
-        <h1><%= @shop.name %></h1>
+        <h2><%= @shop.name %></h2>
       </div>  
         <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
       </div>  
       <div>
-        <h5><%= @user.try(:first_name) %></h5>
-        <a class="btn btn-ghost" href="#"><i class="fas fa-envelope"></i> Contactar</a>
+        <!--<h5><%= @user.try(:first_name) %></h5>-->
+        <a class="btn btn-contact align-center" href="#"><i class="fas fa-envelope"></i> Contactar</a>
       </div>
     </div>
     <%# historia %>
@@ -42,11 +42,11 @@
             <div class="mt-2">
               <p class="card-amount">Cantidad: <%= product.amount %></p>
             </div>
-            <%= link_to  'Ver', shop_product_path(product.shop, product), class:"btn btn-primary" %>
           </div>
         </div>
-      <% end %>
+      <% end %> 
     </div>
+    <%= link_to "+ Agregar producto", new_shop_product_path(@shop), class: "btn btn-add" %> 
   </ul>
-  <%= link_to "nuevo producto", new_shop_product_path(@shop) %>
+  
 </div>
