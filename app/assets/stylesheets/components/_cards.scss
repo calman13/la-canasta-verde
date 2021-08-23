@@ -1,7 +1,7 @@
 app/assets/stylesheets/components/_card.scss
 .card-trip {
     overflow: hidden;
-    background: white;
+    background-color: rgb(238, 235, 235);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 12px;
   }
@@ -11,6 +11,7 @@ app/assets/stylesheets/components/_card.scss
   opacity: 1;
   transform: scale(1);
   box-shadow: 2px 2px 3px grey;
+  border-radius: 12px;
 }
   
   .card-trip > img {
@@ -38,6 +39,8 @@ app/assets/stylesheets/components/_card.scss
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
+    background-color: rgb(238, 235, 235);
+    border-radius: 12px;
   }
   
   .card-trip-infos .card-trip-user {
