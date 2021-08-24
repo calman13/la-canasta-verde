@@ -1,9 +1,11 @@
+<div class="container mt-5">
 <h1 class="text-center"> Crear Tienda</h1>
-<div class="container">
+  <div class="border p-5 mt-2" >
   <%= simple_form_for [ @shop ] do |f| %>
     <%= f.input :name %>
     <%= f.input :history %>
     <%= f.input :image, as: :file %>
     <%= f.submit "Subir tienda", class:"btn btn-add" %>
   <% end %>
+</div>
 </div>

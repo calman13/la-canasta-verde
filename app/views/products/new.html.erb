@@ -1,4 +1,7 @@
+<div class="container mt-3">
+  <h1 class="text-center"> Crear Producto</h1>
 <div class="container">
+ <div class="border p-5 mt-2" >
   <%= simple_form_for([@shop, @product]) do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
@@ -7,4 +10,6 @@
     <%= f.input :image, as: :file %>
     <%= f.submit "Subir producto", class:"btn btn-add" %>
   <% end %>
+</div>
+</div>
 </div>
