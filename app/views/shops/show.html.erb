@@ -42,11 +42,19 @@
               <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
               <p class="card-price">Precio: $ <%= product.price %></p>
             </div>
+
             <div class="mt-2">
               <p class="card-amount">Cantidad: <%= product.amount %></p>
             </div>
+            <div>
+            <%=link_to "Editar", edit_product_path(product), class:"btn btn-primary btn-sm" %>
+            <%= link_to "Eliminar", product_path(product), method: :delete, class:"btn btn-primary btn-sm" %>
+            </div>
+
+
           </div>
         </div>
+
       <% end %> 
     </div>
     <%= link_to "+ Agregar producto", new_shop_product_path(@shop), class: "btn btn-add" %> 
