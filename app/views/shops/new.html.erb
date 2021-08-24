@@ -1,18 +1,6 @@
-<<<<<<< HEAD
-
-
-<h1 class="text-center"> Registrar Nueva Tienda</h1>
-<div class="container">
-<%= simple_form_for [ @shop ] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :history %>
-  <%= f.input :image, as: :file %>
-  <%= f.submit "Crear Tienda", class: "btn-ghost" %>
-<% end %>
-</div> 
-=======
+<div class="container mt-5">
 <h1 class="text-center"> Crear Tienda</h1>
-<div class="container">
+  <div class="border p-5 mt-2" >
   <%= simple_form_for [ @shop ] do |f| %>
     <%= f.input :name %>
     <%= f.input :history %>
@@ -20,4 +8,4 @@
     <%= f.submit "Subir tienda", class: "btn btn-primary" %>
   <% end %>
 </div>
->>>>>>> 568aaaee5d9f16a5a5b94290499705df8b63297a
+</div>
