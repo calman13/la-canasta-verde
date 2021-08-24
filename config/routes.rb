@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :shops do
     resources :products, only: [:show, :index, :new, :create]
   end
-  
+  resources :products, only: [:destroy, :edit, :update]
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #get 'products,to:products#index', as: :show_product
