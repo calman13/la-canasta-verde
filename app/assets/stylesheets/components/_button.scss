@@ -81,3 +81,15 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.btn-search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55px;
+  height: 55px;
+  line-height:55px;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+}
