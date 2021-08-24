@@ -25,7 +25,26 @@ class ProductsController < ApplicationController
             render :new
         end
     end
-    
+
+    def edit
+      @product = Product.find(params[:id])
+    end
+  
+    def update
+      @product = Product.find(params[:id])
+      @product.update(product_params)
+      redirect_to root_path
+    end
+
+
+
+    def destroy
+      @product = Product.find(params[:id])
+       @product.destroy
+       redirect_to root_path
+    end
+
+
     private
 
     def set_shop
@@ -35,9 +54,5 @@ class ProductsController < ApplicationController
     def product_params
         params.require(:product).permit(:title, :description, :price, :amount, :image)
     end
-    #def destroy
-      #@product = Product.find(params[:id])
-     # @product.destroy
-     # redirect_to products_path
-    #end
+    
 end
