@@ -6,15 +6,36 @@
 </div>
 </div>
 <div class="container mt-5">
+<<<<<<< HEAD
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">PRODUCTOS</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">TIENDAS</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">LA CANASTA VERDE</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+<div class="container mt-0">
+=======
 <div class="text-center">
   <h2 class="text-center">Productos</h2>
 </div>
 <div class="container mt-5">
+>>>>>>> 0872157bf1d49d4ecf0472596b5f70dfeb714136
     <div class="d-flex flex-wrap justify-content-around">
     <% @products.each do |product| %>    
-      <div class="card-trip m-4">
+      <div class="card-trip m-2">
           <% if product.image.attached? %>
-            <%= cl_image_tag product.image.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag product.image.key, height: 800, width: 1000, crop: :fill %>
             <% end %>
         <div class="card-trip-infos">
           <div>
@@ -23,7 +44,7 @@
           </div>
           <div class="mt-2">
             <p class="card-amount">Cantidad: <%= product.amount %></p>
-            <p class="card-amount">shop: <%= product.shop.name %></p>
+            <p class="card-amount">shop: <%= product.shop.name %></p>            
             </div>
         </div>
       </div>
