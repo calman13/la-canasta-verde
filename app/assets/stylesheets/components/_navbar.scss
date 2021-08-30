@@ -20,3 +20,19 @@
  border-radius: 50%; 
  width: 1000px;
 }
+
+.search-form-control{
+  position: absolute;
+  padding: 10px;
+}
+
+.search-form-control input {
+  width: 240px;
+  height: 40px;
+  padding: 0 20;
+  font-size: 18px;
+  color: #000;
+  outline: none;
+  border: 1px solid silver;
+  border-radius: 30px;
+}
