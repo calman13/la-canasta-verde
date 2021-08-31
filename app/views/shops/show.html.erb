@@ -1,5 +1,5 @@
 <div>
-<%= render 'shared/carousel' %>
+  <%= render 'shared/carousel' %>
 </div>
 
 <div class="container mb-5">
@@ -9,87 +9,80 @@
       <div>
         <h2><%= @shop.name.capitalize %></h2>
       </div>  
-        <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
+      <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
       </div>  
-      <div>
-        <!--<h5><%= @user.try(:first_name) %></h5>-->
-        <a class="btn btn-contact align-center" href="#"><i class="fas fa-envelope"></i> Contactar</a>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-contact align-center" data-toggle="modal" data-target="#exampleModalCenter">
+        <i class="fas fa-envelope"></i> Contactar
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4> Nos puedes llamar o escribir.</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Telefono:</label>
+                <h5 class="modal-title" id="exampleModalLongTitle"><%= @product.shop.user.phone %></h5>
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Email:</label>
+                <h5 class="modal-title" id="exampleModalLongTitle"><%= @product.shop.user.email %></h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+
     <%# historia %>
     <div class="flex-grow-1 p-5">
       <div>
         <h2 class="wt-text-caption-title wt-display-inline">Historia</h2>
         <p class="wt-text-caption wt-display-inline"><%= @shop.history.capitalize %></p>
       </div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-contact align-center" data-toggle="modal" data-target="#exampleModalCenter">
-  Contactar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-    
-      <div class="modal-header">
-    
-        <h4> Nos puedes llamar o escribir.</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      
-         <div class="modal-body">
-          <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Telefono:</label>
-            <h5 class="modal-title" id="exampleModalLongTitle"><%= @product.shop.user.phone %></h5>
-            
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Email:</label>
-            <h5 class="modal-title" id="exampleModalLongTitle"><%= @product.shop.user.email %></h5>
-            
-          </div>
-        </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <ul>
-    <h3 class="text-center">Productos</h3>
-    <div class="d-flex flex-wrap justify-content-around">
-      <% @shop.products.each do |product| %>
+  <div class="container">
+    <ul>
+      <h3 class="text-center">Productos</h3>
+      <div class="d-flex flex-wrap justify-content-around">
+        <% @shop.products.each do |product| %>
 
-        <div class="card-trip m-4">
-          <% if product.image.attached? %>
-            <%= cl_image_tag product.image.key, height: 300, width: 400, crop: :fill %>
-          <% end %>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
-              <p class="card-price">Precio: $ <%= product.price %></p>
-            </div>
-            <div class="mt-2">
-              <p class="card-amount">Cantidad: <%= product.amount %></p>
+          <div class="card-trip m-4">
+            <% if product.image.attached? %>
+              <%= cl_image_tag product.image.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
+                <p class="card-price">Precio: $ <%= product.price %></p>
+              </div>
+              <div class="mt-2">
+                <p class="card-amount">Cantidad: <%= product.amount %></p>
+              </div>
+              <div>
+                <%=link_to "Editar", edit_product_path(product), class:"btn btn-primary btn-sm" %>
+                <%= link_to "Eliminar", product_path(product), method: :delete, class:"btn btn-primary btn-sm" %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %> 
-    </div>
-    <%= link_to "+ Agregar producto", new_shop_product_path(@shop), class: "btn btn-add" %> 
-  </ul>
-  
-</div>
-
+        <% end %> 
       </div>
-        <div class="footer">Pie de Página</div>
-      </div>
-    </div>
+      <%= link_to "+ Agregar producto", new_shop_product_path(@shop), class: "btn btn-add" %> 
+    </ul>
   </div>
-</div>
+  <div class="footer">
+    Pie de Página
+  </div>
 </div>
 
 
