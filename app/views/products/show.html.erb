@@ -24,10 +24,10 @@
     <%# historia %>
     <div class="flex-grow-1 p-5">
       <div>
-        <h2 class="wt-text-caption-title wt-display-inline">Description</h2>
-        <p class="wt-text-caption wt-display-inline"><%= @product.description %></p>
+        <h2 class="wt-text-caption-title wt-display-inline">Descripción</h2>
+        <p class="wt-text-caption wt-display-inline"><%= @product.description.capitalize %></p>
         <h2><%=@product.price%></h2>
-        <p><%= link_to  @product.shop.name, shop_path(@product.shop) %> </p>
+        <p><%= link_to  @product.shop.name.capitalize, shop_path(@product.shop) %> </p>
         <!--<a class="btn btn-contact align-center"data-toggle="popover" title="" data-content="Datos1 :¨asd /n Datos 2:¨asd"><i class="fas fa-envelope"></i> Contactar</a>-->
       <div class="modal fade btn-contact" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

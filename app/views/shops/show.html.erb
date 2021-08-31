@@ -7,7 +7,7 @@
   <%# usuario %>
     <div clas="flex-grow-3">
       <div>
-        <h2><%= @shop.name %></h2>
+        <h2><%= @shop.name.capitalize %></h2>
       </div>  
         <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
@@ -21,7 +21,7 @@
     <div class="flex-grow-1 p-5">
       <div>
         <h2 class="wt-text-caption-title wt-display-inline">Historia</h2>
-        <p class="wt-text-caption wt-display-inline"><%= @shop.history %></p>
+        <p class="wt-text-caption wt-display-inline"><%= @shop.history.capitalize %></p>
       </div>
     </div>
     </div>
