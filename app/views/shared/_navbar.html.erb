@@ -9,11 +9,19 @@
 
   <div>
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group" aria-expanded="false">
-        <input class="wt-input wt-input-btn-group__input global-enhancements-search-input-btn-group__input wt-pr-xs-7" placeholder="Busca lo que quieres" type="text" name="query" id="search_query" /> 
-        <button name="button" type="submit" class="btn btn-search">
-          <i class="fas fa-search icon"></i>
-        </button>
+      <div class="container">
+	      <div class="row">
+          <div class="span12">
+            <form id="custom-search-form" class="form-search form-horizontal pull-right">
+              <div class="input-append span12">
+                <input class="search-query" placeholder="Busca lo que quieres" type="text" /> 
+                <button type="submit" class="btn-search">
+                  <i class="fas fa-search icon"></i>
+                </button>
+              </div>
+            </form>  
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
@@ -40,7 +48,7 @@
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+        </li>  
       <% end %>
     </ul>
   </div>

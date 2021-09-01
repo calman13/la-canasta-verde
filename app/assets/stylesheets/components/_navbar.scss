@@ -22,7 +22,7 @@
 }
 
 .search-form-control{
-  position: absolute;
+  position: relative;
   padding: 10px;
 }
 
@@ -58,7 +58,7 @@
 
 #custom-search-form button {
   border: 0;
-  background: none;
+  background-color: white;
   /** belows styles are working good */
   padding: 2px 5px;
   margin-top: 2px;
