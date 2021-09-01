@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "Vegetales2.jpg", crop: :fill, class:"nav-logo" %>
-    <% end %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,11 +9,19 @@
 
   <div>
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group" aria-expanded="false">
-        <input class="wt-input wt-input-btn-group__input global-enhancements-search-input-btn-group__input wt-pr-xs-7" placeholder="Busca lo que quieres" type="text" name="query" id="search_query" /> 
-        <button name="button" type="submit" class="btn btn-search">
-          <i class="fas fa-search icon"></i>
-        </button>
+      <div class="container">
+	      <div class="row">
+          <div class="col-xs-10 col-xs-offset-1">
+            <div class="input-group">
+              <input class="form-control" placeholder="Busca lo que quieres" name="query" id="search_query" type="text">
+              <div class="input-group-btn">
+                <button name="button" type="submit" class="btn btn-search">
+                  <i class="fas fa-search icon"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+	      </div>
       </div>
     <% end %>
   </div>
@@ -24,7 +32,7 @@
           <%= link_to "Inicio", root_path , class: "nav-link" %>
         </li>
         <li class="nav-item">
-        <%= link_to 'Tiendas', shops_path, class: "nav-link" %>
+          <%= link_to 'Tiendas', shops_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Mensajes", "#", class: "nav-link" %>
@@ -40,8 +48,9 @@
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+        </li>  
       <% end %>
     </ul>
   </div>
 </div>
+

@@ -22,7 +22,7 @@
 }
 
 .search-form-control{
-  position: absolute;
+  position: relative;
   padding: 10px;
 }
 
@@ -35,4 +35,32 @@
   outline: none;
   border: 1px solid silver;
   border-radius: 30px;
+}
+
+
+.form-group {
+  margin:0;
+  padding:20px ;
+
+  &:first-child { border-color: transparent; }
+}
+
+.form-control {
+padding: 0px 10px 0 20px;
+margin-top: 10px;
+color: #333;
+font-size: 18px;
+font-weight: 500;
+border: 0px solid #555;
+-webkit-box-shadow: none;
+box-shadow: none;
+min-height:20px;
+height: auto;
+border-radius: 50px 0  0 50px !important;
+}
+
+.form-control :focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: transparent;
 }
