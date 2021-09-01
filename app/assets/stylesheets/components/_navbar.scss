@@ -37,40 +37,30 @@
   border-radius: 30px;
 }
 
-#custom-search-form {
+
+.form-group {
   margin:0;
-  margin-top: 5px;
-  padding: 0;
+  padding:20px ;
+
+  &:first-child { border-color: transparent; }
 }
 
-#custom-search-form .search-query {
-  padding-right: 3px;
-  padding-right: 4px \9;
-  padding-left: 3px;
-  padding-left: 4px \9;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
-
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+.form-control {
+padding: 0px 10px 0 20px;
+margin-top: 10px;
+color: #333;
+font-size: 18px;
+font-weight: 500;
+border: 0px solid #555;
+-webkit-box-shadow: none;
+box-shadow: none;
+min-height:20px;
+height: auto;
+border-radius: 50px 0  0 50px !important;
 }
 
-#custom-search-form button {
-  border: 0;
-  background-color: white;
-  /** belows styles are working good */
-  padding: 2px 5px;
-  margin-top: 2px;
-  position: relative;
-  left: -28px;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.search-query:focus + button {
-  z-index: 3;   
+.form-control :focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: transparent;
 }

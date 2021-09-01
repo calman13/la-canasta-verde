@@ -11,17 +11,17 @@
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="container">
 	      <div class="row">
-          <div class="span12">
-            <form id="custom-search-form" class="form-search form-horizontal pull-right">
-              <div class="input-append span12">
-                <input class="search-query" placeholder="Busca lo que quieres" type="text" /> 
-                <button type="submit" class="btn-search">
+          <div class="col-xs-10 col-xs-offset-1">
+            <div class="input-group">
+              <input class="form-control" placeholder="Busca lo que quieres" name="query" id="search_query" type="text">
+              <div class="input-group-btn">
+                <button name="button" type="submit" class="btn btn-search">
                   <i class="fas fa-search icon"></i>
                 </button>
               </div>
-            </form>  
+            </div>
           </div>
-        </div>
+	      </div>
       </div>
     <% end %>
   </div>
