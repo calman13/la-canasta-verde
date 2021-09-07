@@ -7,15 +7,15 @@
   <%# usuario %>
   <div class="col-3 text-center "><h2><%= @shop.name.capitalize %></h2><br />
   <% if @shop.image.attached? %>
-        <%= cl_image_tag(@shop.image.key, height:250, width:250, crop: :fill,class: "img-thumbnail rounded-circle my-avatar")%>
-        <% else %>
-        <img src="https://i.imgur.com/WyxbTOS.png" class="img-thumbnail" alt="Servicio">
-      <% end %>
+    <%= cl_image_tag(@shop.image.key, height:250, width:250, crop: :fill,class: "img-thumbnail rounded-circle my-avatar")%>
+  <% else %>
+    <img src="https://i.imgur.com/WyxbTOS.png" class="img-thumbnail" alt="Servicio">
+  <% end %>
 
    <!-- <img src="https://www.hola.com/imagenes/decoracion/20210408187392/plantar-huerto-urbano-primavera-mc/0-938-406/plantar-huerto-primavera-m.jpg
 " class="img-thumbnail rounded-circle my-avatar" alt="..."><br />
-    <br />
-     Button trigger modal -->
+    <br /> -->
+     <!-- Button trigger modal -->
     <button class="btn btn-contact" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-envelope"></i> Contacto</button>
   </div>
   <%# historia %>
@@ -38,15 +38,17 @@
             <% end %>
             <div class="card-trip-infos">
               <div>
-                <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
+                <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product), class:"text-decoration-none" %></h2>
                 <p class="card-price">Precio: $ <%= product.price %></p>
               </div>
               <div class="mt-2">
                 <p class="card-amount">Cantidad: <%= product.amount %></p>
               </div>
               <div>
+                <!--<a class="fas fa-pen text-decoration-none" href="edit_product_path(product)">-->
                 <%= link_to "Editar", edit_product_path(product), class:"btn btn-primary btn-sm" %>
                 <%= link_to "Eliminar", product_path(product), method: :delete, class:"btn btn-primary btn-sm" %>
+                <!--<a class="fas fa-trash-alt text-decoration-none" href="product_path(product)", method: :delete>-->
               </div>
             </div>
           </div>
@@ -55,8 +57,9 @@
       <%= link_to "+ Agregar producto", new_shop_product_path(@shop), class: "btn btn-add" %> 
     </ul>
   </div>
-  
 </div>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -82,4 +85,3 @@
     </div>
   </div>
 </div>
-<i class="fas fa-trash-alt"></i>
