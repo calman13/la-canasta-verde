@@ -16,7 +16,6 @@
     <h2>Historia</h2>
     <p><%= @shop.history.capitalize %></p>
   </div>
-
 </div>
 
 <div class="container mb-5 pt-5">
@@ -39,7 +38,7 @@
                 <p class="card-amount">Cantidad: <%= product.amount %></p>
               </div>
               <div>
-                <%=link_to "Editar", edit_product_path(product), class:"btn btn-primary btn-sm" %>
+                <%= link_to "Editar", edit_product_path(product), class:"btn btn-primary btn-sm" %>
                 <%= link_to "Eliminar", product_path(product), method: :delete, class:"btn btn-primary btn-sm" %>
               </div>
             </div>
@@ -78,3 +77,4 @@
     </div>
   </div>
 </div>
+<i class="fas fa-trash-alt"></i>
