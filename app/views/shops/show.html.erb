@@ -6,9 +6,16 @@
 <div class="d-flex justify-content-center" role="group">
   <%# usuario %>
   <div class="col-3 text-center "><h2><%= @shop.name.capitalize %></h2><br />
-    <img src="https://kitt.lewagon.com/placeholder/users/arthur-littm" class="img-thumbnail rounded-circle my-avatar" alt="..."><br />
+  <% if @shop.image.attached? %>
+        <%= cl_image_tag(@shop.image.key, height:250, width:250, crop: :fill,class: "img-thumbnail rounded-circle my-avatar")%>
+        <% else %>
+        <img src="https://i.imgur.com/WyxbTOS.png" class="img-thumbnail" alt="Servicio">
+      <% end %>
+
+   <!-- <img src="https://www.hola.com/imagenes/decoracion/20210408187392/plantar-huerto-urbano-primavera-mc/0-938-406/plantar-huerto-primavera-m.jpg
+" class="img-thumbnail rounded-circle my-avatar" alt="..."><br />
     <br />
-    <!-- Button trigger modal -->
+     Button trigger modal -->
     <button class="btn btn-contact" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-envelope"></i> Contacto</button>
   </div>
   <%# historia %>
@@ -48,9 +55,7 @@
       <%= link_to "+ Agregar producto", new_shop_product_path(@shop), class: "btn btn-add" %> 
     </ul>
   </div>
-  <div class="footer">
-    Pie de Página
-  </div>
+  
 </div>
 
 <!-- Modal -->
