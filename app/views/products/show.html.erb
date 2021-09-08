@@ -8,59 +8,52 @@
   </div>
 </div>-->
 <!--<div class="container mb-2 cont-product p-2">-->
-
-<div class="container mb-2
- cont-product p-2">
-  <div id="content" class="d-flex justify-content-around" role="main">
-  <%# usuario %>
-    <div clas="flex-grow-3">
-      <div>
-        <h1><%= @product.title.try(:capitalize) %></h1>
-      </div>  
-      <div class="avatar shop-home-max-icon-width wt-position-relative wt-display-inline-block shop-home-large-icon-width" data-editable-img="shop-icon">
-        <% if @product.image.attached? %>
-        <%= cl_image_tag @product.image.key, crop: :fill , class: "avatar-large wt-rounded wt-display-block", alt: "avatar-large" %>
-        <% end %>
-      </div>  
+<br /><br /><br /><br /><br /><br />
+<div class="d-flex justify-content-center align-text-center align-self-center aling-item-center" role="group">
+  <%# container info product %>
+    <%# product %>
+    <div class="product-card col-3 text-center">
+      <h2><%= @product.title.try(:capitalize) %></h2>
+      <% if @product.image.attached? %>
+        <%= cl_image_tag @product.image.key, height:250, width:250, crop: :fill , class: "img-thumbnail rounded-circle my-avatar" %>
+      <% end %><br /><br />
+      <!-- Button trigger modal -->
+      <button class="btn btn-contact" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-envelope"></i> Contacto</button>
+      <br /><br />
     </div>
-    <%# historia %>
-    <div class="flex-grow-1 p-5">
-      <div>
-        <h2 class="wt-text-caption-title wt-display-inline">Descripción</h2>
-        <p class="wt-text-caption wt-display-inline"><%= @product.description.capitalize %></p>
-        <h2><%=@product.price%></h2>
-        <p><%= link_to  @product.shop.name.capitalize, shop_path(@product.shop) %> </p>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-contact align-center" data-toggle="modal" data-target="#exampleModalCenter">
-          <i class="fas fa-envelope"></i> Contactar
+    <%# description %>
+    <div class="product-card col-6 text-center">
+      <h3>Descripción</h3>
+      <p><%= @product.description.capitalize %></p>
+      <h4><%=@product.price%></h4>
+      <p><%= link_to  @product.shop.name.capitalize, shop_path(@product.shop), class:"text-decoration-none" %> </p>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4> Nos puedes llamar o escribir.</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
-        <!-- Modal -->
-       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-             <div class="modal-header">
-                <h4> Nos puedes llamar o escribir.</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Telefono:</label>
-                  <h5 class="modal-title" id="exampleModalLongTitle"><%= @product.shop.user.phone %></h5>
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">Email:</label>
-                  <h5 class="modal-title" id="exampleModalLongTitle"><%= @product.shop.user.email %></h5>
-                </div>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Telefono:</label>
+          <h5 class="modal-title" id="exampleModalLongTitle"><%= @product.shop.user.phone %></h5>
+        </div>
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Email:</label>
+          <h5 class="modal-title" id="exampleModalLongTitle"><%= @product.shop.user.email %></h5>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-

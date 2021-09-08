@@ -28,7 +28,7 @@
                  <%= cl_image_tag shop.image.key, height: 300, width: 400, crop: :fill %>
                <% end %>
             <div class="card-shop-infos">
-              <h2><strong><%= link_to shop.name.capitalize, shop_path(shop) %></strong></h2>
+              <h2><strong><%= link_to shop.name.capitalize, shop_path(shop), class:"text-decoration-none" %></strong></h2>
             </div>
           </div>    
         <% end %>

@@ -18,7 +18,7 @@
             <% end %>
         <div class="card-trip-infos">
           <div>
-            <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product) %></h2>
+            <h2><%= link_to product.title.capitalize, shop_product_path(product.shop, product), class:"text-decoration-none" %></h2>
             <p class="card-trip-pricing">Precio: $<%= product.price %></p>
           </div>
           <div class="mt-2">
